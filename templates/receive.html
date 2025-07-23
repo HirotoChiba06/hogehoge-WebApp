@@ -6,7 +6,11 @@
         <p>{{ content }}</p>
     </div>
     <form method="post">
+        <input type="hidden" name="message_id" value="{{ message_id }}">
         <textarea name="reply" rows="6" cols="40" placeholder="このメッセージへの返信を書いてください" required maxlength="360"></textarea><br>
         <button type="submit">返信して再漂流する</button>
     </form>
+    <div style="margin-top: 2em;">
+        <a href="/">🏠 トップページへ戻る</a>
+    </div>
 {% endif %}

@@ -2,6 +2,9 @@
 
 {% if error %}
     <p style="color:red;">{{ error }}</p>
+    <div style="margin-top: 2em;">
+        <a href="/">🏠 トップページへ戻る</a>
+    </div>
 {% else %}
     <div style="background:#f0f8ff; padding:1em; border-radius:5px;">
         <h4>🌊 あなたの元のメッセージ：</h4>
@@ -14,4 +17,7 @@
             <li><strong>{{ reply[1] }}：</strong><br>{{ reply[0] }}</li>
         {% endfor %}
     </ul>
+    <div style="margin-top: 2em;">
+        <a href="/">🏠 トップページへ戻る</a>
+    </div>
 {% endif %}

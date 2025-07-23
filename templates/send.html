@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ボトルメッセージ送信</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
 <body>
     <h2>あなたのメッセージを海に漂流させましょう</h2>
     {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
@@ -11,5 +5,8 @@
         <textarea name="message" rows="10" cols="40" placeholder="ここに最大360文字までの相談を書いてください" maxlength="360" required></textarea>
         <button type="submit">ボトルを投げる</button>
     </form>
+
+    <div style="margin-top: 2em;">
+        <a href="/">🏠 トップページへ戻る</a>
+    </div>
 </body>
-</html>
