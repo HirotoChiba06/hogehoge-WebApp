@@ -1,23 +1,27 @@
-<h2>📜 あなたの漂流ボトルに届いた返信たち</h2>
+<div class="center-box">
+  <h2>📜 あなたの漂流ボトルに届いた返信たち</h2>
 
-{% if error %}
+  {% if error %}
     <p style="color:red;">{{ error }}</p>
-    <div style="margin-top: 2em;">
-        <a href="/">🏠 トップページへ戻る</a>
-    </div>
-{% else %}
-    <div style="background:#f0f8ff; padding:1em; border-radius:5px;">
-        <h4>🌊 あなたの元のメッセージ：</h4>
-        <p>{{ content }}</p>
+  {% else %}
+    <p>以下は、あなたのメッセージに対する返信です。どれも大切な言葉です。</p>
+
+    <div style="background-color: rgba(255,255,255,0.05); padding:1em; border-radius:8px; margin-bottom: 1em;">
+      <h4>🌊 あなたの元のメッセージ：</h4>
+      <p>{{ content }}</p>
     </div>
 
     <h4>📩 受け取った返信：</h4>
-    <ul>
-        {% for reply in replies %}
-            <li><strong>{{ reply[1] }}：</strong><br>{{ reply[0] }}</li>
-        {% endfor %}
+    <ul style="text-align: left;">
+      {% for reply in replies %}
+        <li style="margin-bottom: 0.8em;">
+          <strong>{{ reply[1] }}：</strong><br>{{ reply[0] }}
+        </li>
+      {% endfor %}
     </ul>
-    <div style="margin-top: 2em;">
-        <a href="/">🏠 トップページへ戻る</a>
-    </div>
-{% endif %}
+  {% endif %}
+
+  <div style="margin-top: 2em;">
+    <a href="/">🏠 トップページへ戻る</a>
+  </div>
+</div>

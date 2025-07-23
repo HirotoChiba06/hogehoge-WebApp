@@ -1,44 +1,57 @@
+/* 全体背景とフォント・レイアウト */
 body {
     font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
     margin: 0;
     padding: 0;
-    color: #eee;
-    background: linear-gradient(to bottom, #1c2d44, #2e4a61, #3e5d75);
+    color: #000000;
+    background: linear-gradient(to bottom, #142c40, #1c3e56, #274e68);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-
-
-
-h2 {
-    color: #006994;
+/* 中央揃え用のコンテナ */
+.center-box {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2em;
+    border-radius: 12px;
 }
+
+/* テキストエリア・ボタン・リンクの見た目 */
 textarea {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
     resize: vertical;
+    border: 2px solid #005577;
+    border-radius: 6px;
+    background-color: #1c2d44;
+    color: #e0eaf0;
 }
+
 button {
     padding: 10px 15px;
     background-color: #006994;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    margin-top: 1em;
 }
+
 button:hover {
     background-color: #005577;
 }
+
 a {
-    color: #0066cc;
+    color: #88c8ff;
     text-decoration: none;
     font-weight: bold;
 }
@@ -62,4 +75,7 @@ a:hover {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
+p {
+    margin-bottom: 1em;
+    font-size: 1.1rem;
+}

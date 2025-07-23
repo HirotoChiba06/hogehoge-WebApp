@@ -1,13 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ボトルメッセージ送信</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
 <body>
-  <div class="center-box">
-    <h2>あなたのメッセージを海に漂流させましょう</h2>
-    {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
-    <form method="post">
-        <textarea name="message" rows="10" cols="40" placeholder="ここに最大360文字までの相談を書いてください" maxlength="360" required></textarea><br>
-        <button type="submit">ボトルを投げる</button>
-    </form>
-    <div style="margin-top: 2em;">
-        <a href="/">🏠 トップページへ戻る</a>
+    <div class="center-box">
+        <h2>🌊 あなたのメッセージを海に漂流させましょう</h2>
+
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="post">
+            <textarea name="message" rows="10" cols="40" placeholder="ここに最大360文字までの相談を書いてください" maxlength="360" required></textarea><br>
+            <button type="submit">ボトルを投げる</button>
+        </form>
+
+        <div style="margin-top: 2em;">
+            <a href="/">🏠 トップページへ戻る</a>
+        </div>
     </div>
-  </div>
 </body>
+</html>
