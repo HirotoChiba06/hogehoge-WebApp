@@ -1,0 +1,12 @@
+# SQLite DBファイルを無視
+db/*.db
+
+# Pythonキャッシュファイル
+__pycache__/
+*.pyc
+
+# 環境ファイル
+.env
+
+# VSCodeなどの設定
+.vscode/
