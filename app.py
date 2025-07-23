@@ -71,6 +71,33 @@ def receive():
 def receive_complete():
     return render_template('receive_complete.html')
 
+@app.route('/archive')
+def archive():
+    origin_key = request.args.get('key')  # 投稿者識別キー
+    if not origin_key:
+        return render_template('archive.html', error="キーが指定されていません。")
+
+    conn = sqlite3.connect('db/messages.db')
+    c = conn.cursor()
+
+    # 投稿者のボトルを取得（3件以上返信されているもの）
+    c.execute("SELECT id, content FROM messages WHERE origin_key = ? AND replies >= 3", (origin_key,))
+    message = c.fetchone()
+
+    if not message:
+        conn.close()
+        return render_template('archive.html', error="返信が集まったメッセージが見つかりません。")
+
+    message_id, content = message
+
+    # 返信一覧を取得
+    c.execute("SELECT content, timestamp FROM replies WHERE message_id = ? ORDER BY id", (message_id,))
+    replies = c.fetchall()
+
+    conn.close()
+    return render_template('archive.html', content=content, replies=replies)
+
+
 # ✅ユーティリティ関数（投稿者識別キー生成）
 def generate_key():
     now = datetime.now().strftime("%Y%m%d%H%M%S")

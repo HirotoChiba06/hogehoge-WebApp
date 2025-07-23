@@ -1,0 +1,17 @@
+<h2>📜 あなたの漂流ボトルに届いた返信たち</h2>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% else %}
+    <div style="background:#f0f8ff; padding:1em; border-radius:5px;">
+        <h4>🌊 あなたの元のメッセージ：</h4>
+        <p>{{ content }}</p>
+    </div>
+
+    <h4>📩 受け取った返信：</h4>
+    <ul>
+        {% for reply in replies %}
+            <li><strong>{{ reply[1] }}：</strong><br>{{ reply[0] }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
