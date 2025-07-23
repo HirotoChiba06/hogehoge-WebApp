@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: bottleapp
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
