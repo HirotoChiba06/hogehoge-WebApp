@@ -34,6 +34,43 @@ def send():
 def send_complete():
     return render_template('send_complete.html')
 
+@app.route('/receive', methods=['GET', 'POST'])
+def receive():
+    conn = sqlite3.connect('db/messages.db')
+    c = conn.cursor()
+
+    # ✅返信数が3未満のボトルをランダムで1件抽出
+    c.execute("SELECT id, content FROM messages WHERE replies < 3 ORDER BY RANDOM() LIMIT 1")
+    message = c.fetchone()
+
+    if not message:
+        conn.close()
+        return render_template('receive.html', error="今受信できるボトルはありません。")
+
+    message_id, content = message
+
+    if request.method == 'POST':
+        reply_content = request.form['reply']
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        # ✅replies テーブルに保存
+        c.execute("INSERT INTO replies (message_id, content, timestamp) VALUES (?, ?, ?)",
+                  (message_id, reply_content, timestamp))
+
+        # ✅messages テーブルの返信数更新
+        c.execute("UPDATE messages SET replies = replies + 1 WHERE id = ?", (message_id,))
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('receive_complete'))
+
+    conn.close()
+    return render_template('receive.html', message_id=message_id, content=content)
+
+@app.route('/receive_complete')
+def receive_complete():
+    return render_template('receive_complete.html')
+
 # ✅ユーティリティ関数（投稿者識別キー生成）
 def generate_key():
     now = datetime.now().strftime("%Y%m%d%H%M%S")

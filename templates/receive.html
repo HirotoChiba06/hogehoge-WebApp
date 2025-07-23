@@ -1,0 +1,12 @@
+<h2>📥 あなたに届いたメッセージ</h2>
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% else %}
+    <div style="background:#eef; padding:1em; border-radius:5px;">
+        <p>{{ content }}</p>
+    </div>
+    <form method="post">
+        <textarea name="reply" rows="6" cols="40" placeholder="このメッセージへの返信を書いてください" required maxlength="360"></textarea><br>
+        <button type="submit">返信して再漂流する</button>
+    </form>
+{% endif %}
