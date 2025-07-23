@@ -1,9 +1,22 @@
 body {
-    font-family: "Helvetica", sans-serif;
-    background-color: #f0f8ff;
-    padding: 20px;
-    color: #333;
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #eee;
+    background: linear-gradient(to bottom, #1c2d44, #2e4a61, #3e5d75);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
+
+
+
+
 h2 {
     color: #006994;
 }
@@ -32,3 +45,21 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.message-box {
+    background-color: #ffffff;
+    border: 2px dashed #006994;
+    border-radius: 12px;
+    padding: 1em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1.5em;
+}
+.center-box {
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.85); /* 半透明で美しい */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
